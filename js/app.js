@@ -30,6 +30,7 @@ Enemy.prototype.update = function(dt) {
         this.speed = getSpeed();
     }
 
+    // Set the collision
     if (player.x < this.x + 60 &&
         player.x + 60 > this.x &&
         player.y < this.y + 30 &&
@@ -55,7 +56,7 @@ var Player = function(x, y) {
 };
 
 Player.prototype.update = function() {
-    // Prevent player from moving beyond canvas wall boundaries
+    // If a user go out of the screen, prevent that.
     if (this.y > 380) {
         this.y = 380;
     }
@@ -68,7 +69,7 @@ Player.prototype.update = function() {
         this.x = 0;
     }
 
-    // Check for player reaching top of canvas and winning the game
+    // If a user cross the grass, then win.
     if (this.y < 0) {
         this.x = 200;
         this.y = 380;
@@ -101,11 +102,11 @@ Player.prototype.handleInput = function(keyPress) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var enemyPosition = [60, 140, 220];
+var enemyPositionY = [60, 140, 220];
 
 var enemy;
 
-enemyPosition.forEach(function(posY) {
+enemyPositionY.forEach(function(posY) {
     enemy = new Enemy(0, posY, getSpeed());
     allEnemies.push(enemy);
 });
