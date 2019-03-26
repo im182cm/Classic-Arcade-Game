@@ -18,7 +18,7 @@ function getSpeed() {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+Enemy.prototype.update = function(dt, player) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -31,13 +31,7 @@ Enemy.prototype.update = function(dt) {
     }
 
     // Set the collision
-    if (player.x < this.x + 60 &&
-        player.x + 60 > this.x &&
-        player.y < this.y + 30 &&
-        30 + player.y > this.y) {
-        player.x = 200;
-        player.y = 380;
-    }
+    player.checkCollision(this.x, this.y)
 };
 
 // Draw the enemy on the screen, required method for game
@@ -97,6 +91,16 @@ Player.prototype.handleInput = function(keyPress) {
     }
 };
 
+// Check collision
+Player.prototype.checkCollision = function(x, y) {
+    if (player.x < x + 60 &&
+        player.x + 60 > x &&
+        player.y < y + 30 &&
+        30 + player.y > y) {
+        player.x = 200;
+        player.y = 380;
+    }
+}
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player

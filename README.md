@@ -12,3 +12,8 @@ Move the character with left, right, top, bottom in keyboard. If you crash with 
 ## Contributing
 
 Starter code from Udacity.
+
+
+## How to run
+
+Open `index.html` and the game will start right away.
