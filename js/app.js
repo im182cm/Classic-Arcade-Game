@@ -93,12 +93,12 @@ Player.prototype.handleInput = function(keyPress) {
 
 // Check collision
 Player.prototype.checkCollision = function(x, y) {
-    if (player.x < x + 60 &&
-        player.x + 60 > x &&
-        player.y < y + 30 &&
-        30 + player.y > y) {
-        player.x = 200;
-        player.y = 380;
+    if (this.x < x + 60 &&
+        this.x + 60 > x &&
+        this.y < y + 30 &&
+        30 + this.y > y) {
+        this.x = 200;
+        this.y = 380;
     }
 }
 // Now instantiate your objects.
